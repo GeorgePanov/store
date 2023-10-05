@@ -1,10 +1,32 @@
 import React from 'react';
 
+import styles from '../../styles/Sidebar.module.css'
+import { NavLink } from 'react-router-dom';
+
+
 const Sidebar = () => {
     return (
-        <div>
-            Sidebar
-        </div>
+        <section className={styles.sidebar}>
+            <div className={styles.title}>CATEGORIES</div>
+            <nav>
+                <ul className={styles.menu}>
+                    <li>
+                        <NavLink to={`/categories/${id}`} >
+                            Link
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav>
+
+            <div className={styles.footer}>
+                <a href='/help' target='_blank' className={styles.link}>
+                    Help
+                </a>
+                <a href='/terms' target='_blank' className={styles.link}>
+                    Terms & Conditions
+                </a>
+            </div>
+        </section>
     );
 };
 
