@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
     let { list } = useSelector(({ categories }) => categories)
-    list = list.slice(0, 5)
+    // list = list.slice(0, 5)
     // console.log(list);
 
     return (
