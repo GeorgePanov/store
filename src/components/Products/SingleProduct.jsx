@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductQuery } from '../../features/API/apiSlice';
 
 import { ROUTES } from '../../utils/routes'
+import Product from './Product';
 
 const SingleProduct = () => {
     const { id } = useParams();
@@ -20,10 +21,10 @@ const SingleProduct = () => {
 
     // console.log(isSuccess);
 
-    return (
-        <div>
-            asdf
-        </div>
+    return isLoading ? (
+        <section>Loading...</section>
+    ) : (
+        <Product {...data} />
     );
 };
 
