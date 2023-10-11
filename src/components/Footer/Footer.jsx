@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
 
             <div className={styles.rights} >
-                Developed by George Panov
+                Developed by <a href='https://github.com/GeorgePanov' target='_blank' >George Panov</a>
             </div>
 
             <div className={styles.socials} >
