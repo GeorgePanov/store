@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import styles from '../../styles/Home.module.css'
+import styles from "../../styles/Home.module.css";
 
-import bannerImg from '../../images/banner.png'
-
+import bannerImg from "../../images/banner.png";
 
 const Banner = () => {
     return (
@@ -16,7 +15,10 @@ const Banner = () => {
                 <button className={styles.more}>See more</button>
             </div>
 
-            <div className={styles.right} style={{ backgroundImage: `url(${bannerImg})` }}>
+            <div
+                className={styles.right}
+                style={{ backgroundImage: `url(${bannerImg})` }}
+            >
                 <p className={styles.discount}>
                     save up to <span>50%</span> off
                 </p>

@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import styles from '../../styles/Sidebar.module.css'
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import styles from "../../styles/Sidebar.module.css";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-    let { list } = useSelector(({ categories }) => categories)
+    let { list } = useSelector(({ categories }) => categories);
     // list = list.slice(0, 5)
     // console.log(list);
 
@@ -18,18 +17,25 @@ const Sidebar = () => {
                     {list.map(({ id, name }) => (
                         <li key={id}>
                             <NavLink
-                            className={({isActive}) => `${styles.link} ${isActive ? styles.active : ''} `}
-                            to={`/categories/${id}`}>{name}</NavLink>
+                                className={({ isActive }) =>
+                                    `${styles.link} ${
+                                        isActive ? styles.active : ""
+                                    } `
+                                }
+                                to={`/categories/${id}`}
+                            >
+                                {name}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>
             </nav>
 
             <div className={styles.footer}>
-                <a href='/help' target='_blank' className={styles.link}>
+                <a href="/help" target="_blank" className={styles.link}>
                     Help
                 </a>
-                <a href='/terms' target='_blank' className={styles.link}>
+                <a href="/terms" target="_blank" className={styles.link}>
                     Terms & Conditions
                 </a>
             </div>

@@ -1,22 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import { useGetProductQuery } from '../../features/API/apiSlice';
-import { getRelatedProducts } from '../../features/products/productsSlice';
+import { useGetProductQuery } from "../../features/API/apiSlice";
+import { getRelatedProducts } from "../../features/products/productsSlice";
 
-import { ROUTES } from '../../utils/routes'
+import { ROUTES } from "../../utils/routes";
 
-import Product from './Product';
-import Products from './Products';
+import Product from "./Product";
+import Products from "./Products";
 
 const SingleProduct = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const { id } = useParams();
     const navigate = useNavigate();
-    const { list, related } = useSelector(({ products }) => products)
+    const { list, related } = useSelector(({ products }) => products);
 
-    const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({ id });
+    const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({
+        id,
+    });
 
     useEffect(() => {
         if (!isFetching && !isLoading && !isSuccess) {
@@ -28,9 +30,8 @@ const SingleProduct = () => {
     useEffect(() => {
         if (!data || !list.length) return;
 
-        dispatch(getRelatedProducts(data.category.id))
-    }, [data, dispatch, list.length])
-
+        dispatch(getRelatedProducts(data.category.id));
+    }, [data, dispatch, list.length]);
 
     return isLoading ? (
         <section>Loading...</section>

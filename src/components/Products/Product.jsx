@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import styles from '../../styles/Product.module.css'
+import styles from "../../styles/Product.module.css";
 
-import { ROUTES } from '../../utils/routes'
-import { addItemToCart } from '../../features/user/userSlice';
-
+import { ROUTES } from "../../utils/routes";
+import { addItemToCart } from "../../features/user/userSlice";
 
 const SIZES = [4, 4.5, 5];
 
@@ -21,12 +20,12 @@ const Product = (item) => {
     useEffect(() => {
         if (!images.length) return;
 
-        setCurrentImage(images[0])
-    }, [images])
+        setCurrentImage(images[0]);
+    }, [images]);
 
     const AddToCart = () => {
-        dispatch(addItemToCart(item))
-    }
+        dispatch(addItemToCart(item));
+    };
 
     return (
         <section className={styles.product}>
@@ -35,7 +34,7 @@ const Product = (item) => {
                     className={styles.current}
                     style={{ backgroundImage: `url(${currentImage})` }}
                 />
-                <div className={styles['images-list']}>
+                <div className={styles["images-list"]}>
                     {images.map((image, index) => (
                         <div
                             key={index}
@@ -48,9 +47,7 @@ const Product = (item) => {
             </div>
             <div className={styles.info}>
                 <h1 className={styles.title}>{title}</h1>
-                <div className={styles.price}>
-                    ${price}
-                </div>
+                <div className={styles.price}>${price}</div>
                 <div className={styles.color}>
                     <span>Color: </span> Green
                 </div>
@@ -58,10 +55,13 @@ const Product = (item) => {
                     <span>Sizes: </span>
 
                     <div className={styles.list}>
-                        {SIZES.map(size => (
-                            <div key={size}
+                        {SIZES.map((size) => (
+                            <div
+                                key={size}
                                 onClick={() => setCurrentSize(size)}
-                                className={`${styles.size} ${currentSize === size ? styles.active : ''}`}
+                                className={`${styles.size} ${
+                                    currentSize === size ? styles.active : ""
+                                }`}
                             >
                                 {size}
                             </div>
@@ -72,8 +72,16 @@ const Product = (item) => {
                 <p className={styles.description}>{description}</p>
 
                 <div className={styles.actions}>
-                    <button onClick={AddToCart} className={styles.add} disabled={!currentSize}>Add to cart</button>
-                    <button className={styles.favourite}>Add to favourites</button>
+                    <button
+                        onClick={AddToCart}
+                        className={styles.add}
+                        disabled={!currentSize}
+                    >
+                        Add to cart
+                    </button>
+                    <button className={styles.favourite}>
+                        Add to favourites
+                    </button>
                 </div>
 
                 <div className={styles.bottom}>
@@ -82,8 +90,8 @@ const Product = (item) => {
                     <Link to={ROUTES.HOME}>Return to store</Link>
                 </div>
             </div>
-        </section >
+        </section>
     );
-    };
+};
 
-    export default Product;
+export default Product;

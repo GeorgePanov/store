@@ -9,7 +9,7 @@ import App from "./components/App/App";
 import { store } from "./features/store";
 
 createRoot(document.getElementById("root")).render(
-    <Provider store={store} >
+    <Provider store={store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>
