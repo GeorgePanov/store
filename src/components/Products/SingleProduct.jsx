@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import styles from "../../styles/Product.module.css";
+
 import { useGetProductQuery } from "../../features/API/apiSlice";
 import { getRelatedProducts } from "../../features/products/productsSlice";
 
@@ -34,7 +36,7 @@ const SingleProduct = () => {
     }, [data, dispatch, list.length]);
 
     return isLoading ? (
-        <section>Loading...</section>
+        <section className={styles.product}>Loading...</section>
     ) : (
         <>
             <Product {...data} />
